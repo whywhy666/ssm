@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kuang.dao.Mapper">
+
+    <insert id="addCountry" parameterType="Country">
+        insert into project.countries(countryName,countryAu,countryAg,countryCu)
+        values (#{countryName}, #{countryAu}, #{countryAg},#{countryCu})
+    </insert>
+
+    <delete id="deleteCountryByName" parameterType="String">
+        delete from project.countries where countryName=#{countryName}
+    </delete>
+
+    <update id="updateCountry" parameterType="Country">
+        update project.countries
+        set countryAu = #{countryAu},countryAg = #{countryAg},countryCu = #{countryCu}
+        where countryName = #{countryName}
+    </update>
+
+    <select id="queryCountryByName" resultType="Country">
+        select * from project.countries
+        where countryName = #{countryName}
+    </select>
+
+    <select id="queryAllCountry" resultType="Country">
+        SELECT * from project.countries
+    </select>
+
+    <insert id="addNews" parameterType="News">
+        insert into project.news(newsId,newsTitle,newsUrl,newsHtml,newsJsp,newsTime)
+        values (#{newsId}, #{newsTitle}, #{newsUrl},#{newsHtml},#{newsJsp},#{newsTime})
+    </insert>
+
+    <delete id="deleteNewsById" parameterType="int">
+        delete from project.news where newsId=#{newsId}
+    </delete>
+
+    <update id="updateNews" parameterType="News">
+        update project.news
+        set newsTitle = #{newsTitle},newsUrl = #{newsUrl},newsHtml = #{newsHtml},newsJsp=#{newsJsp},newsTime=#{newsTime}
+        where newsId = #{newsId}
+    </update>
+
+    <select id="queryNewsById" resultType="News">
+        select * from project.news
+        where newsId = #{newsId}
+    </select>
+
+    <select id="queryRaceById" resultType="Race">
+        select * from project.races
+        where raceId = #{raceId}
+    </select>
+
+    <select id="queryAllNews" resultType="News">
+        SELECT * from project.news
+    </select>
+
+    <insert id="addRace" parameterType="Race">
+        insert into project.races(raceId,raceName,raceDay,raceTime,racePlace,raceIsend)
+        values (#{raceId}, #{raceName}, #{raceDay},#{raceTime},#{racePlace},#{raceIsend})
+    </insert>
+
+    <delete id="deleteRaceById" parameterType="int">
+        delete from project.races where raceId=#{raceId}
+    </delete>
+
+    <update id="updateRace" parameterType="Race">
+        update project.races
+        set raceName = #{raceName},raceDay = #{raceDay},raceTime = #{raceTime},racePlace=#{racePlace},raceIsend=#{raceIsend}
+        where raceId = #{raceId}
+    </update>
+
+    <select id="queryAllRace" resultType="Race">
+        SELECT * from project.races
+    </select>
+
+    <select id="query0Race" resultType="Race">
+        SELECT * from project.races where raceIsend = 0
+    </select>
+
+    <select id="query1Race" resultType="Race">
+        SELECT * from project.races where raceIsend = 1
+    </select>
+
+    <insert id="addRemark" parameterType="Remark">
+        insert into project.remarks(remarkId,remarkName,remarkContent,remarkTime)
+        values (#{remarkId}, #{remarkName}, #{remarkContent},#{remarkTime})
+    </insert>
+
+    <delete id="deleteRemarkById" parameterType="int">
+        delete from project.remarks where remarkId=#{remarkId}
+    </delete>
+
+    <update id="updateRemark" parameterType="Remark">
+        update project.remarks
+        set remarkName = #{remarkName},remarkContent = #{remarkContent},remarkTime = #{remarkTime}
+        where remarkId = #{remarkId}
+    </update>
+
+    <select id="queryRemarkById" resultType="Remark">
+        select * from project.remarks
+        where remarkId = #{remarkId}
+    </select>
+
+    <select id="queryAllRemark" resultType="Remark">
+        SELECT * from project.remarks
+    </select>
+
+    <insert id="addUser" parameterType="User">
+        insert into project.users(userName,userPwd,userAdmin,userEmail,userPhone)
+        values (#{userName}, #{userPwd}, #{userAdmin},#{userEmail},#{userPhone})
+    </insert>
+
+    <delete id="deleteUserByName" parameterType="String">
+        delete from project.users where userName=#{userName}
+    </delete>
+
+    <update id="updateUser" parameterType="User">
+        update project.users
+        set userPwd = #{userPwd},userAdmin = #{userAdmin},userEmail = #{userEmail},userPhone=#{userPhone}
+        where userName = #{userName}
+    </update>
+
+    <select id="queryUserByName" resultType="User">
+        select * from project.users
+        where userName = #{userName}
+    </select>
+
+    <select id="queryAllUser" resultType="User">
+        SELECT * from project.users
+    </select>
+</mapper>
